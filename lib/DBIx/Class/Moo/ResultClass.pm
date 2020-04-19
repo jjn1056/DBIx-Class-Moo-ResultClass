@@ -1,5 +1,7 @@
 package DBIx::Class::Moo::ResultClass;
 
+our $VERSION = '0.001';
+
 use strict;
 use warnings;
 use Import::Into;
@@ -66,6 +68,32 @@ DBIx::Class::Moo::ResultClass - Moo-ify DBIC Resultclasses
 
 B<Note>: Warning, Early Access module.  This is pretty straightforward but we've not used it
 extensively so its possible some corner cases exist. Test cases / docs welcomed.
+
+Use L<Moo> with L<DBIx::Class>.  Its not immediately obvious how to do this since L<DBIx::Class>
+since you need to fuss with Moo and 'FOREIGNBUILDARGS' to get it working correctly.  So we did
+the lifting for you.
+
+You can use this directly on you result classes and/or on a base resultclass.  You can also use
+it to consume Moo roles directly:
+
+    package Component;
+
+    use Moo::Role;
+
+    has foo => (is => 'rw');
+
+    package Schema::Result::Artist;
+
+    use DBIx::Class::Moo::ResultClass;
+
+    extends 'Schema::Result';
+    with 'Component';
+
+    ...
+
+And it should just do the right thing.
+
+This doesn't work yet on Resultset classes (another time / test cases welcomed).
 
 =head1 AUTHOR
  
