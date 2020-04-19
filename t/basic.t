@@ -1,7 +1,7 @@
 #!/usr/bin/env perl
 
 use lib 't/lib';
-use Test::Most;
+use Test::More 0.86;
 use Test::DBIx::Class 
   -schema_class => 'Schema',
   qw(:resultsets);
