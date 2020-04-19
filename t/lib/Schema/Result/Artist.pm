@@ -3,6 +3,8 @@ package Schema::Result::Artist;
 use base qw/DBIx::Class::Core/;
 use DBIx::Class::MooResultClass;
 
+__PACKAGE__->load_components('+Component');
+
 has spork => (is => 'ro', default => sub { 'THERE IS NO SPROK' });
 
 __PACKAGE__->table('artist');
