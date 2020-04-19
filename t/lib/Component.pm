@@ -1,8 +1,7 @@
 package Component;
 
-use base qw/DBIx::Class/;
-use DBIx::Class::MooResultClass;
+use Moo::Role;
 
-has foo => (is => 'ro');
+has foo => (is => 'rw');
 
 1;
