@@ -6,10 +6,10 @@ use Import::Into;
 use Sub::Defer;
 
 sub import {
-  base->import::into(1, 'DBIx::Class::Core');
-  mro->import::into(1, 'c3');
+ mro->import::into(1, 'c3');
   Moo->import::into(1);
   my $targ = caller();
+  $targ->can('extends')->('DBIx::Class::Core') unless $targ->isa('DBIx::Class');
   defer_sub "${targ}::FOREIGNBUILDARGS" => sub {    
     my %specs = %{Moo->_constructor_maker_for($targ)->all_attribute_specs||{}};
     my @init_args = grep defined, map +(exists $specs{$_}{init_arg} ? $specs{$_}{init_arg} : $_), sort keys %specs;
@@ -23,7 +23,7 @@ sub import {
 
 1;
 
-=head1 TITLE
+=head1 NAME
 
 DBIx::Class::MooResultClass - Moo-ify DBIC Resultclasses
 
