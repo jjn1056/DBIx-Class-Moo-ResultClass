@@ -3,7 +3,7 @@
 use lib 't/lib';
 use Test::Most;
 use Test::DBIx::Class 
-  -schema_class => 'Local::Schema',
+  -schema_class => 'Schema',
   qw(:resultsets);
 
 ok my $artist = Artist->create({name=>'Foo'});
