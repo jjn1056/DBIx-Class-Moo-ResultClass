@@ -2,12 +2,11 @@
 
 use lib 't/lib';
 use Test::Most;
-use Local::Schema;
+use Test::DBIx::Class 
+  -schema_class => 'Local::Schema',
+  qw(:resultsets);
 
-ok my $schema = Local::Schema->connect;
-ok my $artist_rs = $schema->resultset('Artist');
-ok my $artist = $artist_rs->create({name=>'Foo'});
-
-warn $artist->spork;
+ok my $artist = Artist->create({name=>'Foo'});
+ok $artist->spork, 'THERE IS NO SPROK';
 
 done_testing;

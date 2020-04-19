@@ -11,7 +11,7 @@ sub import {
   Moo->import::into(1);
   my $targ = caller();
   defer_sub "${targ}::FOREIGNBUILDARGS" => sub {    
-    my %specs = %{Moo->_constructor_maker_for($targ)->attribute_specs||{}};
+    my %specs = %{Moo->_constructor_maker_for($targ)->all_attribute_specs||{}};
     my @init_args = grep defined, map +(exists $specs{$_}{init_arg} ? $specs{$_}{init_arg} : $_), sort keys %specs;
     sub {
       my ($class, $args) = @_;
