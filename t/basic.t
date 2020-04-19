@@ -13,4 +13,11 @@ ok $artist->result, 'result';
 ok $artist->foo('ddd');
 ok $artist->foo, 'dddd';
 
+ok my $country = Country->create({name=>'Foo', foo=>'aaa', result=>'result'});
+ok $country->spork, 'THERE IS NO SPROK';
+ok $country->foo, 'aaa';
+ok $country->result, 'result';
+ok $country->foo('ddd');
+ok $country->foo, 'dddd';
+
 done_testing;

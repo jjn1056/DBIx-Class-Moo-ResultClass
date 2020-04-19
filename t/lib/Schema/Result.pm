@@ -3,7 +3,7 @@ use warnings;
 
 package Schema::Result;
 
-use DBIx::Class::MooResultClass;
+use DBIx::Class::Moo::ResultClass;
 
 has 'result' => (is=>'ro');
 

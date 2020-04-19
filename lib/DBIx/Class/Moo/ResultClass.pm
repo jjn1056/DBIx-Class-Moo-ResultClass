@@ -1,4 +1,4 @@
-package DBIx::Class::MooResultClass;
+package DBIx::Class::Moo::ResultClass;
 
 use strict;
 use warnings;
@@ -25,13 +25,13 @@ sub import {
 
 =head1 NAME
 
-DBIx::Class::MooResultClass - Moo-ify DBIC Resultclasses
+DBIx::Class::Moo::ResultClass - Moo-ify DBIC Resultclasses
 
 =head1 SYNOPSIS
 
     package Schema::Result::Artist;
 
-    use DBIx::Class::MooResultClass;
+    use DBIx::Class::Moo::ResultClass;
 
     extends 'Schema::Result';
     with 'Component';
@@ -64,7 +64,8 @@ DBIx::Class::MooResultClass - Moo-ify DBIC Resultclasses
 
 =head1 DESCRIPTION
 
-  TBD
+B<Note>: Warning, Early Access module.  This is pretty straightforward but we've not used it
+extensively so its possible some corner cases exist. Test cases / docs welcomed.
 
 =head1 AUTHOR
  
