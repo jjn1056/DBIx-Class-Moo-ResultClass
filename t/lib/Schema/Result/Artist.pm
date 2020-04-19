@@ -1,6 +1,8 @@
 package Schema::Result::Artist;
 
 use DBIx::Class::MooResultClass;
+
+extends 'Schema::Result';
 with 'Component';
 
 has spork => (is => 'ro', default => sub { 'THERE IS NO SPROK' });

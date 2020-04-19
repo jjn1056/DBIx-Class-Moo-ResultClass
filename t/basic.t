@@ -6,9 +6,10 @@ use Test::DBIx::Class
   -schema_class => 'Schema',
   qw(:resultsets);
 
-ok my $artist = Artist->create({name=>'Foo', foo=>'aaa'});
+ok my $artist = Artist->create({name=>'Foo', foo=>'aaa', result=>'result'});
 ok $artist->spork, 'THERE IS NO SPROK';
 ok $artist->foo, 'aaa';
+ok $artist->result, 'result';
 ok $artist->foo('ddd');
 ok $artist->foo, 'dddd';
 
